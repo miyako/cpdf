@@ -38,8 +38,8 @@ If ($params=Null)
 	
 Else 
 	
-	var $cpdf : cs.cpdf
-	$cpdf:=cs.cpdf.new(cs._cpdf_Controller)
+	var $cpdf : cs.cpdf.cpdf
+	$cpdf:=cs.cpdf.cpdf.new(cs._cpdf_Controller)
 	
 	$pdf:=File("/DATA/brochure.pdf")
 	$pdf:=OB Class($pdf).new($pdf.platformPath; fk platform path)
