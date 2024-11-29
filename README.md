@@ -9,3 +9,16 @@
 * see [coherentpdf.com](https://www.coherentpdf.com/index.html) for the licensing of **Coherent PDF**.
 
 # cpdf
+
+## dependencies.json
+
+ ```json
+{
+	"dependencies": {
+		"curl": {
+			"github": "miyako/curl",
+			"version": "*"
+		}
+	}
+}
+```
