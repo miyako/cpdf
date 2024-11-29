@@ -9,3 +9,46 @@
 * see [coherentpdf.com](https://www.coherentpdf.com/index.html) for the licensing of **Coherent PDF**.
 
 # cpdf
+
+## dependencies.json
+
+ ```json
+{
+	"dependencies": {
+		"cpdf": {
+			"github": "miyako/cpdf",
+			"version": "*"
+		}
+	}
+}
+```
+
+## Usage
+
+```4d
+#DECLARE($params : Object)
+
+If ($params=Null)
+	
+	/*
+		async calls must be performed in a worker or form
+	*/
+	
+	CALL WORKER(1; Current method name; {})
+	
+Else 
+	
+	var $cpdf : cs.cpdf
+	$cpdf:=cs.cpdf.new(cs._cpdf_Controller)
+	
+	$pdf:=File("/DATA/brochure.pdf")
+	$pdf:=OB Class($pdf).new($pdf.platformPath; fk platform path)
+	$out:=Folder(fk desktop folder).file("brochure.json")
+	$out2:=Folder(fk desktop folder).file("brochure.pdf")
+	$cpdf.perform([\
+	[$pdf; "-output-json"; "-output-json-parse-content-streams"; "-o"; $out]; \
+	["-j"; $out; "-o"; $out2]\
+	])
+	
+End if 
+```
