@@ -17,7 +17,7 @@
 	"dependencies": {
 		"cpdf": {
 			"github": "miyako/cpdf",
-			"version": "*"
+			"version": "latest"
 		}
 	}
 }
